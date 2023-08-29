@@ -14,7 +14,7 @@
 
 .all {
     box-shadow: 1px 1px 30px 2px #a19aa0 inset;
-    background-color: #fcf7f7;
+    background-color: #fcfcfc;
     border-radius: 20px;
 }
 
@@ -64,6 +64,10 @@ button:hover {
     min-width: 25rem;
 }
 
+/* .to-do-bottom {
+    padding: 20px;
+} */
+
 .table-list {
     min-width: 100%;
     border-spacing: 0;
@@ -77,7 +81,7 @@ button:hover {
 }
 
 td {
-    font-size: 17px;
+    font-size: 18px;
     padding: 20px 0px;
 }
 
@@ -109,4 +113,35 @@ td:hover {
 .completed-task {
     color: #6c7878b5;
     text-decoration: line-through;
+}
+
+@media only screen and (max-width: 510px) {
+    .container {
+        background: none;
+        box-shadow: 1px 1px 30px 2px #a19aa0 inset;
+    }
+
+    .all {
+        box-shadow: none;
+    }
+
+    .to-do-bottom {
+        padding: 40px 10px;
+    }
+
+    #add-text {
+        min-width: 10rem;
+    }
+
+    #search {
+        min-width: 16rem;
+    }
+
+    td {
+        font-size: 16px;
+    }
+
+    .table-list .table-head th {
+        font-size: 18px;
+    }
 }
