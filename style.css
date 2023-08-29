@@ -8,14 +8,14 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(150deg, #e2bfbfd1, #cde9eb);
+    background: linear-gradient(280deg, #d4b2b2d1, #cde9eb);
     padding: 15px;
 }
 
 .all {
-    box-shadow: 1px 1px 80px 1px #a19aa0 inset;
+    box-shadow: 1px 1px 10px 1px #b5aeb4 inset;
     border-radius: 25px;
-    background: linear-gradient(250deg, #fff, #f6eaf5);
+    background: #fff;
 }
 
 button:hover {
@@ -112,14 +112,6 @@ td:hover {
 }
 
 @media only screen and (max-width: 510px) {
-    .container {
-        background: none;
-        box-shadow: 1px 1px 70px 5px #aeaaae inset;
-    }
-
-    .all {
-        box-shadow: 1px 1px 40px 2px #aeaaae inset;
-    }
 
     .to-do-top .app-title {
         font-size: 35px;
@@ -130,7 +122,7 @@ td:hover {
     }
 
     #add-text {
-        min-width: 12rem;
+        min-width: 11rem;
     }
 
     #search {
