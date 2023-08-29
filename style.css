@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(150deg, rgba(226, 191, 191, 0.821), #cde9eb);
+    padding: 15px;
+}
+
+.to-do-top, .to-do-bottom {
+    margin: 0px auto;
+    padding: 40px 35px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.to-do-top {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.to-do-top .app-title {
+    font-size: 45px;
+}
+
+.form-container {
+    margin: 20px 0;
+}
+
+.to-do-bottom {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.add-btn {
+    outline: none;
+    border: none;
+    padding: 10px 19px;
+    background-color: #485081cf;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#add-text, #search {
+    margin-top: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(132, 132, 132);
+    background-color: #f1eff8;
+}
+
+#add-text {
+    min-width: 20rem;
+}
+
+#search {
+    min-width: 25rem;
+    background-color: #f8eff7;
+}
+
+.table-list {
+    min-width: 100%;
+    border-spacing: 0;
+    margin-top: -40px;
+}
+
+.table-list .table-head th {
+    background-color: #ededee;
+    font-size: 20px;
+    padding: 5px;
+}
