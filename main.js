@@ -51,3 +51,10 @@ function renderTodoList() { // filling the list
 function updateCount() {
     countElement.textContent = todoList.length;
 }
+
+// Function to delete a task
+function deleteTask(index) {
+    todoList.splice(index, 1); // remove one task from the list (the task with the given index)
+    saveToStorage();
+    renderTodoList();
+}
