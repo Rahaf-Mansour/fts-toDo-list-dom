@@ -9,6 +9,47 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="all">
+        <div class="to-do-top">
+          <h1 class="app-title">TODO List</h1>
+          <form class="form-container" action="">
+            <input
+              type="text"
+              class="add-text"
+              id="add-text"
+              placeholder="Add new task..."
+            />
+            <button class="add-btn">Add</button> <br />
+            <input
+              id="search"
+              type="search"
+              name="search"
+              placeholder="Search tasks..."
+            />
+          </form>
+        </div>
+        <div class="to-do-bottom">
+          <table class="table-list">
+            <thead class="table-head">
+              <tr>
+                <th>ID</th>
+                <th>TODO Description</th>
+                <th>User ID</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">Total Tasks: <span class="count"></span></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
