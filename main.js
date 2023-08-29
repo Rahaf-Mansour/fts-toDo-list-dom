@@ -48,8 +48,12 @@ function renderTodoList() { // filling the list
 }
   
 // Function to update the task count
-function updateCount() {
+function updateCount(filteredTasksCount) {
+  if (filteredTasksCount !== undefined) {
+    countElement.textContent = filteredTasksCount;
+  } else {
     countElement.textContent = todoList.length;
+  }
 }
 
 // Function to add a task -when triggering the submit form action-
@@ -89,55 +93,14 @@ function toggleTaskStatus(index) {
     renderTodoList();
 }
 
-// // Event listener for search input
-// searchInput.addEventListener('input', () => {
-//     const searchTerm = searchInput.value.toLowerCase();
-//     const filteredTasks = todoList.filter(task =>
-//       task.todo.toLowerCase().includes(searchTerm)
-//     );
-//     renderFilteredTasks(filteredTasks);
-// });
-
-// // Function to render filtered tasks
-// function renderFilteredTasks(filteredTasks) {
-//     tableBody.innerHTML = '';
-//     filteredTasks.forEach((task, index) => {
-//       const row = document.createElement('tr');
-//       row.innerHTML = `
-//         <td>${index + 1}</td>
-//         <td>${task.todo}</td>
-//         <td>${task.userId}</td>
-//         <td>${task.completed ? 'Completed' : 'Pending'}</td>
-//         <td>
-//           <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
-//           <button class="complete-btn">Done</button>
-//         </td>
-//       `;
-//       tableBody.appendChild(row);
-//     });
-// }
-
-//second trial
-
 // Event listener for search input
 searchInput.addEventListener('input', () => {
-  const searchTerm = searchInput.value.toLowerCase();
-  const filteredTasks = todoList.filter(task => filterTask(task, searchTerm));
-  renderFilteredTasks(filteredTasks);
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredTasks = todoList.filter(task =>
+      task.todo.toLowerCase().includes(searchTerm)
+    );
+    renderFilteredTasks(filteredTasks);
 });
-
-// Function to determine if a task matches the search criteria 
-//(firstly check the first char of todo if matches the searched term, if not then check if its included in todo)
-function filterTask(task, searchTerm) {
-  const taskTodo = task.todo.toLowerCase();
-  
-  // Check if the task starts with the search term or the task includes the search term
-  if ((taskTodo[0] === searchTerm.charAt(0).toLowerCase()) || taskTodo.includes(searchTerm)) {
-      return true;
-  }
-
-  return false;
-}
 
 // Function to render filtered tasks
 function renderFilteredTasks(filteredTasks) {
@@ -156,6 +119,8 @@ function renderFilteredTasks(filteredTasks) {
       `;
       tableBody.appendChild(row);
   });
+  const filteredTasksCount = filteredTasks.length;
+  updateCount(filteredTasksCount);
 }
 
 // Save data to browser storage (LocalStorage) whenever the list changes
@@ -165,4 +130,3 @@ function saveToStorage() {
   
 // Call saveToStorage whenever the list is updated
 renderTodoList();
-
