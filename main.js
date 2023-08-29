@@ -58,3 +58,10 @@ function deleteTask(index) {
     saveToStorage();
     renderTodoList();
 }
+
+// Function to toggle the task between complete and pend
+function toggleTaskStatus(index) {
+    todoList[index].completed = !todoList[index].completed;
+    saveToStorage();
+    renderTodoList();
+}
