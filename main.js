@@ -52,6 +52,29 @@ function updateCount() {
     countElement.textContent = todoList.length;
 }
 
+// Function to add a task -when triggering the submit form action-
+function addTask(){
+    const taskText = addText.value.trim();
+    if (taskText === '') {
+      return;
+    }
+    const newTask = {
+      todo: taskText,
+      userId: parseInt(Math.random() * 100),
+      completed: false,
+    };
+    todoList.push(newTask);
+    saveToStorage();
+    renderTodoList();
+    addText.value = ''; // return the text empty as before (after adding a task) 
+}
+
+// To prevent the default action in the form (prevent the refresh when submitting)
+document.querySelector('.form-container').addEventListener('submit', (e) => {
+    e.preventDefault();
+    addTask(); // When submit (click on Add button) will call addTask function
+})
+
 // Function to delete a task
 function deleteTask(index) {
     todoList.splice(index, 1); // remove one task from the list (the task with the given index)
@@ -59,10 +82,39 @@ function deleteTask(index) {
     renderTodoList();
 }
 
-
 // Function to toggle the task between complete and pend
 function toggleTaskStatus(index) {
     todoList[index].completed = !todoList[index].completed;
     saveToStorage();
     renderTodoList();
 }
+
+// Event listener for search input
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredTasks = todoList.filter(task =>
+      task.todo.toLowerCase().includes(searchTerm)
+    );
+    renderFilteredTasks(filteredTasks);
+});
+
+// Function to render filtered tasks
+function renderFilteredTasks(filteredTasks) {
+    tableBody.innerHTML = '';
+    filteredTasks.forEach((task, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${task.todo}</td>
+        <td>${task.userId}</td>
+        <td>${task.completed ? 'Completed' : 'Pending'}</td>
+        <td>
+          <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+          <button class="complete-btn">Done</button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+}
+
+
