@@ -114,7 +114,7 @@ td:hover {
 @media only screen and (max-width: 510px) {
 
     .to-do-top .app-title {
-        font-size: 35px;
+        font-size: 25px;
     }
 
     .to-do-bottom {
