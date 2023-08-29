@@ -8,14 +8,14 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(150deg, rgba(226, 191, 191, 0.821), #cde9eb);
+    background: linear-gradient(150deg, #e2bfbfd1, #cde9eb);
     padding: 15px;
 }
 
 .all {
-    box-shadow: 1px 1px 30px 2px #a19aa0 inset;
-    background-color: #fcfcfc;
+    box-shadow: 1px 1px 80px 1px #a19aa0 inset;
     border-radius: 20px;
+    background: linear-gradient(180deg, #ffffffd1, #def4f6);
 }
 
 button:hover {
@@ -63,10 +63,6 @@ button:hover {
 #search {
     min-width: 25rem;
 }
-
-/* .to-do-bottom {
-    padding: 20px;
-} */
 
 .table-list {
     min-width: 100%;
@@ -118,11 +114,16 @@ td:hover {
 @media only screen and (max-width: 510px) {
     .container {
         background: none;
-        box-shadow: 1px 1px 30px 2px #a19aa0 inset;
+        box-shadow: 1px 1px 30px 2px #c1bac1 inset;
     }
 
     .all {
         box-shadow: none;
+        background: linear-gradient(150deg, #ffffffd1, #cde9eb);
+    }
+
+    .to-do-top .app-title {
+        font-size: 35px;
     }
 
     .to-do-bottom {
@@ -138,10 +139,10 @@ td:hover {
     }
 
     td {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .table-list .table-head th {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
