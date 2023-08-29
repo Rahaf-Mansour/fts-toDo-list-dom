@@ -22,6 +22,32 @@ async function fetchTodoData() {
     }
 }
 
-  // Event listener to fetch TODO data on page load
+// Event listener to fetch TODO data on page load
 window.addEventListener('load', fetchTodoData);
 
+// Function to render the TODO list
+function renderTodoList() { // filling the list
+    tableBody.innerHTML = '';
+    todoList.forEach((task, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td class="${task.completed ? 'completed-task' : ''}" onclick="toggleTaskStatus(${index})">${task.todo}</td>
+        <td>${task.userId}</td>
+        <td>${task.completed ? 'Completed' : 'Pending'}</td>
+        <td>
+          <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+          <button class="complete-btn" onclick="toggleTaskStatus(${index})">
+            ${task.completed ? 'Pend' : 'Done'}
+          </button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+    updateCount();
+}
+  
+// Function to update the task count
+function updateCount() {
+    countElement.textContent = todoList.length;
+}
