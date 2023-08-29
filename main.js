@@ -117,4 +117,11 @@ function renderFilteredTasks(filteredTasks) {
     });
 }
 
+// Save data to browser storage (LocalStorage) whenever the list changes
+function saveToStorage() {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+}
+  
+// Call saveToStorage whenever the list is updated
+renderTodoList();
 
