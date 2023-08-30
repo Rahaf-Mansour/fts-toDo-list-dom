@@ -50,16 +50,12 @@ function renderTodoList(todoList) {
     todoList.forEach((task, index) => {
       rowData(task, index);
     });
-    updateCount();
+    const count = todoList.length;
+    updateCount(count);
 }
-  
-// Function to update the task count
-function updateCount(filteredTasksCount) {
-  if (filteredTasksCount !== undefined) {
-    countElement.textContent = filteredTasksCount;
-  } else {
-    countElement.textContent = todoList.length;
-  }
+
+function updateCount(count) {
+  countElement.textContent = count;
 }
 
 // Function to add a task -when triggering the submit form action-
@@ -107,16 +103,6 @@ searchInput.addEventListener('input', () => {
     );
     renderTodoList(filteredTasks);
 });
-
-// Function to render filtered tasks
-function renderFilteredTasks(filteredTasks) {
-  tableBody.innerHTML = '';
-  filteredTasks.forEach((task, index) => {
-    rowData(task, index);
-  });
-  const filteredTasksCount = filteredTasks.length;
-  updateCount(filteredTasksCount);
-}
 
 // Save data to browser storage (LocalStorage) whenever the list changes
 function saveToStorage() {
