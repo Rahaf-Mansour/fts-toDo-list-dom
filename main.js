@@ -109,12 +109,14 @@ function renderFilteredTasks(filteredTasks) {
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${index + 1}</td>
-        <td>${task.todo}</td>
+        <td class="${task.completed ? 'completed-task' : ''}" onclick="toggleTaskStatus(${index})">${task.todo}</td>
         <td>${task.userId}</td>
         <td>${task.completed ? 'Completed' : 'Pending'}</td>
         <td>
           <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
-          <button class="complete-btn">Done</button>
+          <button class="complete-btn" onclick="toggleTaskStatus(${index})">
+            ${task.completed ? 'Pend' : 'Done'}
+          </button>
         </td>
       `;
       tableBody.appendChild(row);
