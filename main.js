@@ -16,7 +16,8 @@ async function fetchTodoData() {
       const data = await response.json();
       todoList = [...data.todos.slice(0, 5)]; // Get the first 5 tasks from the API
       saveToStorage();
-      renderTodoList();
+
+      renderTodoList(todoList);
     } catch (error) {
       console.error('Error fetching TODO data:', error);
     }
@@ -25,11 +26,9 @@ async function fetchTodoData() {
 // Event listener to fetch TODO data on page load
 window.addEventListener('load', fetchTodoData);
 
-// Function to render the TODO list
-function renderTodoList() { // filling the list
-    tableBody.innerHTML = '';
-    todoList.forEach((task, index) => {
-      const row = document.createElement('tr');
+// Function for filling the table
+function rowData(task, index){
+  const row = document.createElement('tr');
       row.innerHTML = `
         <td>${index + 1}</td>
         <td class="${task.completed ? 'completed-task' : ''}" onclick="toggleTaskStatus(${index})">${task.todo}</td>
@@ -43,6 +42,13 @@ function renderTodoList() { // filling the list
         </td>
       `;
       tableBody.appendChild(row);
+}
+
+// Function to render the TODO list
+function renderTodoList(todoList) {
+    tableBody.innerHTML = '';
+    todoList.forEach((task, index) => {
+      rowData(task, index);
     });
     updateCount();
 }
@@ -69,7 +75,7 @@ function addTask(){
     };
     todoList.push(newTask);
     saveToStorage();
-    renderTodoList();
+    renderTodoList(todoList);
     addText.value = ''; // return the text empty as before (after adding a task) 
 }
 
@@ -83,14 +89,14 @@ document.querySelector('.form-container').addEventListener('submit', (e) => {
 function deleteTask(index) {
     todoList.splice(index, 1); // remove one task from the list (the task with the given index)
     saveToStorage();
-    renderTodoList();
+    renderTodoList(todoList);
 }
 
 // Function to toggle the task between complete and pend
 function toggleTaskStatus(index) {
     todoList[index].completed = !todoList[index].completed;
     saveToStorage();
-    renderTodoList();
+    renderTodoList(todoList);
 }
 
 // Event listener for search input
@@ -99,27 +105,14 @@ searchInput.addEventListener('input', () => {
     const filteredTasks = todoList.filter(task =>
       task.todo.toLowerCase().includes(searchTerm)
     );
-    renderFilteredTasks(filteredTasks);
+    renderTodoList(filteredTasks);
 });
 
 // Function to render filtered tasks
 function renderFilteredTasks(filteredTasks) {
   tableBody.innerHTML = '';
   filteredTasks.forEach((task, index) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${index + 1}</td>
-        <td class="${task.completed ? 'completed-task' : ''}" onclick="toggleTaskStatus(${index})">${task.todo}</td>
-        <td>${task.userId}</td>
-        <td>${task.completed ? 'Completed' : 'Pending'}</td>
-        <td>
-          <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
-          <button class="complete-btn" onclick="toggleTaskStatus(${index})">
-            ${task.completed ? 'Pend' : 'Done'}
-          </button>
-        </td>
-      `;
-      tableBody.appendChild(row);
+    rowData(task, index);
   });
   const filteredTasksCount = filteredTasks.length;
   updateCount(filteredTasksCount);
@@ -131,4 +124,4 @@ function saveToStorage() {
 }
   
 // Call saveToStorage whenever the list is updated
-renderTodoList();
+renderTodoList(todoList);
