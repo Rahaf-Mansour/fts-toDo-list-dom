@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FTS - ToDo list</title>
-    <link rel="icon" href="images/icon.png" />
+    <link rel="icon" href="assets/images/icon.png" />
     <!-- Link to the css style file -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <!-- Link to the css table styling file -->
+    <link rel="stylesheet" href="src/css/tableStyling.css" />
+    <!-- Link to the css mediaquery styling file -->
+    <link rel="stylesheet" href="src/css/media.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="all">
-        <div class="to-do-top">
+    <div class="overall-container">
+      <div class="toDoList-container">
+        <div class="toDoList-header">
           <h1 class="app-title">TODO List</h1>
           <form class="form-container" action="">
             <input
@@ -29,7 +33,7 @@
             />
           </form>
         </div>
-        <div class="to-do-bottom">
+        <div class="table-container">
           <table class="table-list">
             <thead class="table-head">
               <tr>
@@ -50,6 +54,6 @@
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="src/js/main.js"></script>
   </body>
 </html>

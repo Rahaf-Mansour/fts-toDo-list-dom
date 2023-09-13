@@ -1,0 +1,26 @@
+@media only screen and (max-width: 510px) {
+
+    .toDoList-header .app-title {
+        font-size: 25px;
+    }
+
+    .table-container {
+        padding: 40px 10px;
+    }
+
+    #add-text {
+        min-width: 11rem;
+    }
+
+    #search {
+        min-width: 16rem;
+    }
+
+    td {
+        font-size: 15px;
+    }
+
+    .table-list .table-head th {
+        font-size: 16px;
+    }
+}

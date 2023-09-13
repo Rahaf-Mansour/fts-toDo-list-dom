@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.overall-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(280deg, #d4b2b2d1, #cde9eb);
+    padding: 15px;
+}
+
+.toDoList-container {
+    box-shadow: 1px 1px 10px 1px #b5aeb4 inset;
+    border-radius: 25px;
+    background: #fff;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.toDoList-header, .table-container {
+    margin: 0px auto;
+    padding: 40px 35px;
+    text-align: center;
+}
+
+.toDoList-header .app-title {
+    font-size: 42px;
+}
+
+.form-container {
+    margin: 20px 0;
+}
+
+.add-btn {
+    outline: none;
+    border: none;
+    padding: 10px 19px;
+    background-color: #485081cf;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#add-text, #search {
+    margin-top: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(132, 132, 132);
+    background-color: #f1eff8;
+}
+
+#add-text {
+    min-width: 20rem;
+}
+
+#search {
+    min-width: 25rem;
+}
