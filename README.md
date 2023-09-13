@@ -13,7 +13,9 @@ A TODO List web application with various features to manage tasks efficiently, i
 8. A simple, user-friendly interface.
    
 ## Take A Look:
-![image](https://github.com/Rahaf-Mansour/fts-toDo-list-dom/assets/109438456/d298ce2f-91c2-4d27-b46f-968cb20d9d67)
+![image](https://github.com/Rahaf-Mansour/fts-toDo-list-dom/assets/109438456/ef5c669a-2ab0-4f97-897c-d82711bb62d8)
+
+
 
 
 ## Acknowledgements
